@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.number_box {
+width:200px;
+height:200px;
+background-color: red;
+}
+.num {
+font-size:50px;
+color:#fff;
+font-weight:bold;
+}
+</style>
+<body>
+<div class="container">
+    <div class="carousel">1</div>
+    <div class="carousel">2</div>
+    <div class="carousel">3</div>
+    <div class="carousel">4</div>
+    <div class="carousel">5</div>
+    <button class="prev"> < </button>
+    <button class="next"> > </button>
+</div>
+</body>
+<!-- <script>
+    var box_number = 0;
+    var num = document.querySelector('.num');
+    var left_btn = document.querySelector('.btn.left');
+    var right_btn = document.querySelector('.btn.right');
+
+
+    function onleft (){
+        box_number++;
+
+        if (box_number === 6) {
+            box_number = 1;
+            num.innerHTML = box_number;
+        } else {
+            num.innerHTML = box_number;
+        }
+    };
+    function onright (){
+        box_number--;
+
+        if (box_number === 0) {
+            box_number = 5;
+            num.innerHTML = box_number;
+        }else if (box_number === -1 ) {
+            box_number = 5;
+        } else {
+            num.innerHTML = box_number;
+        }
+    };
+</script> -->
+<script>
+var prevButtonElement = document.querySelector('button.prev');
+var nextButtonElement = document.querySelector('button.next');
+var carouselElement = document.querySelector('.carousel');
+var currentIndex = 0;
+carouselElement[currentIndex].style.display = 'block';
+
+prevButtonElement.addEventListener('click', function(){
+    currentIndex--;
+
+    if (currentIndex === -1) {
+        currentIndex = 4;
+    }
+
+    for (var i = 0; i < customElements.length; i++) {
+        if (i === currentIndex) {
+            carouselElement[i].style.display = 'block';
+        } else {
+            carouselElement[i].style.display = 'none';
+        }
+    }
+});
+nextButtonElement.addEventListener('click', function(){
+    currentIndex++;
+
+    if (currentIndex === 5) {
+        currentIndex = 0;
+    }
+
+    for (var i = 0; i < customElements.length; i++) {
+        if (i === currentIndex) {
+            carouselElement[i].style.display = 'block';
+        } else {
+            carouselElement[i].style.display = 'none';
+        }
+    }
+});
+
+
+</script>
+</html>
